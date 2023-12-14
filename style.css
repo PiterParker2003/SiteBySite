@@ -10,17 +10,18 @@ body{
     
 }
 .card{
-    width: 90%;
-    max-width: 470px;
+    width: 100%;
+    max-width: 900px;
     background: linear-gradient(135deg, #00feba, #5b548a);
     color: #fff;
-    margin: 100px auto 0;
+    margin: 30px auto 0;
     border-radius: 20px;
     padding: 40px 35px;
     text-align: center;
+    margin-top: 40px;
 }
 .search{
-    width: 100%;
+    width: 90%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -35,6 +36,7 @@ body{
     border-radius: 30px;
     flex: 1;
     margin-right: 16px;
+    margin-left: 32px;
     font-size: 18px;
 }
 .search button{
@@ -51,15 +53,16 @@ body{
 }
 
 .sun {
-    margin-top: 30px;
+    margin-top: 80px;
     padding: 20px;
     width: 100%;
-    height: 150px;
+    height: 250px;
     background: url('sun.png') no-repeat center center;
     background-size: contain;
     position: relative;
     animation: rotateAnimation 10s linear infinite;
     text-align: center;
+    margin-bottom: 50px;
 }
 
 @keyframes rotateAnimation {
@@ -94,14 +97,14 @@ body{
 }
 
 .col img{
-    width: 80px;
+    width: 100px;
     margin-right: 15px;
 
 }
 
 .humidity, .wind{
     font-size: 28px;
-    margin-top: -6px;
+    margin-top: 10px;
 }
 .error, .error2{
     text-align: center;
@@ -112,5 +115,85 @@ body{
 }
 .weather-container {
     position: relative;
+    
 }
 
+.cloud {
+    position: relative; /* Zmienione z absolute na relative */
+    width: 200px;
+    height: 100px;
+    border-radius: 100px;
+    background-color: #fff;
+    border-radius: 50px;
+    opacity: 0.8;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+    text-align: center;
+    margin-bottom: 200px;
+    margin-left: 40%;
+    margin-top: 50px;
+  }
+  
+  .cloud1 {
+    top: 60px;
+    left: -190px;
+    position: relative; /* Dodane position: absolute */
+    animation-name: moveCloud1;
+  }
+  
+  .cloud2 {
+    top: 70px;
+    left: -160px;
+    position: absolute; /* Dodane position: absolute */
+    animation-name: moveCloud2;
+  }
+
+  @keyframes moveCloud1 {
+    to {
+      transform: translateX(100%);
+    }
+  }
+
+  @keyframes moveCloud2 {
+    to {
+      transform: translateX(100%);
+    }
+  }
+
+  .drizzle {
+    margin-top: 80px;
+    padding: 20px;
+    width: 100%;
+    height: 250px;
+    background: url('sun.png') no-repeat center center;
+    background-size: contain;
+    position: relative;
+    animation: rotateAnimation 10s linear infinite;
+    text-align: center;
+    margin-bottom: 50px;
+}
+.mist {
+    margin-top: 80px;
+    padding: 20px;
+    width: 100%;
+    height: 250px;
+    background: url('sun.png') no-repeat center center;
+    background-size: contain;
+    position: relative;
+    animation: rotateAnimation 10s linear infinite;
+    text-align: center;
+    margin-bottom: 50px;
+}
+.rain {
+    margin-top: 80px;
+    padding: 20px;
+    width: 100%;
+    height: 250px;
+    background: url('rain.jpg') no-repeat center center;
+    background-size: contain;
+    position: relative;
+    animation: rotateAnimation 10s linear infinite;
+    text-align: center;
+    margin-bottom: 50px;
+    background-color: none;
+}
