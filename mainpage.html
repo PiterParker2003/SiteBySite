@@ -19,9 +19,15 @@
         <div class="error2">
             <p>Sorry, No connection with weather station :(</p>
         </div>
-        <div class="weather">   
-            <div class="sun">
-            </div>
+        <div class="weather">
+            <div class="cloud">
+                    <div class="cloud cloud1"></div>
+                    <div class="cloud cloud2"></div>
+                </div>   
+            <div class="sun"></div>
+            <div class="rain"></div>
+            <div class="drizzle"></div>
+            <div class="mist"></div>
             <h1 class="temp">--°c</h1>
             <h2 class="city">---</h2>
         
@@ -43,7 +49,11 @@
     </div>
 
     <script>
-
+        document.querySelector(".rain").style.display="none" ;
+        document.querySelector(".sun").style.display="none" ;
+        document.querySelector(".cloud").style.display="none" ;
+        document.querySelector(".drizzle").style.display="none" ;
+        document.querySelector(".mist").style.display="none" ;
         const searchBox = document.querySelector(".search input");
         const searchBtn = document.querySelector(".search button");
 
@@ -68,21 +78,42 @@
             document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
             document.querySelector(".wind").innerHTML = data.wind.speed + " km/h";
 
+
             if(data.weather[0].main == "Clouds"){
-                weatherIcon.src = "clouds.png"
+                document.querySelector(".cloud").style.display="block" ;
+                document.querySelector(".rain").remove();
+                document.querySelector(".sun").remove();
+                document.querySelector(".drizzle").remove();
+                document.querySelector(".mist").remove();
             }
             else if(data.weather[0].main == "Clear"){
-                weatherIcon.src = "sun.png"
+                document.querySelector(".sun").style.display="block" ;
+                document.querySelector(".cloud").remove();
+                document.querySelector(".rain").remove();
+                document.querySelector(".drizzle").remove();
+                document.querySelector(".mist").remove();
             }
             else if(data.weather[0].main == "Rain"){
-                weatherIcon.src = "Rain.png"
+                document.querySelector(".rain").style.display="block";
+                document.querySelector(".cloud").remove();
+                document.querySelector(".sun").remove();
+                document.querySelector(".drizzle").remove();
+                document.querySelector(".mist").remove();
             }
-            else if(data.weather[0].main == "Drizzle"){
-                weatherIcon.src = "drizzle.png"
-            }
-            else if(data.weather[0].main == "Mist"){
-                weatherIcon.src = "mist.png"
-            }
+          else if(data.weather[0].main == "Drizzle"){
+            document.querySelector(".drizzle").style.display="block";
+            document.querySelector(".rain").remove();
+             document.querySelector(".sun").remove();
+             document.querySelector(".cloud").remove();
+            document.querySelector(".mist").remove();
+         }
+         else if(data.weather[0].main == "Mist"){
+            document.querySelector(".mist").style.display="block";
+            document.querySelector(".rain").remove();
+             document.querySelector(".sun").remove();
+             document.querySelector(".cloud").remove();
+            document.querySelector(".drizzle").remove();
+         }
             document.querySelector(".weather").style.display = "block";  
             document.querySelector(".error").style.display = "none";
             document.querySelector(".error2").style.display = "none";
