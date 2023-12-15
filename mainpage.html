@@ -78,7 +78,7 @@
             document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
             document.querySelector(".wind").innerHTML = data.wind.speed + " km/h";
 
-
+for(;;){
             if(data.weather[0].main == "Clouds"){
                 document.querySelector(".cloud").style.display="block" ;
                 document.querySelector(".rain").remove();
@@ -118,7 +118,7 @@
             document.querySelector(".error").style.display = "none";
             document.querySelector(".error2").style.display = "none";
             }
-
+}
            
         }
         searchBtn.addEventListener("click", ()=>{
